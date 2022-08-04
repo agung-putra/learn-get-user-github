@@ -1,6 +1,7 @@
 package com.agungtsp.githubuserfavorite;
 
 import java.util.List;
+import javax.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class UserController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.OK)
-  public ResponseEntity<String> addFavoriteUser(@RequestBody User user) {
+  public ResponseEntity<String> addFavoriteUser(@Valid @RequestBody User user) {
     try {
       userService.AddFavoriteUser(user);
       return new ResponseEntity<>("Success", HttpStatus.OK);

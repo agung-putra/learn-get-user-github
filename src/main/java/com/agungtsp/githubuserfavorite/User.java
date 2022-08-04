@@ -3,11 +3,14 @@ package com.agungtsp.githubuserfavorite;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,6 +26,7 @@ public class User {
   private String id;
   private Integer id_github;
   @Indexed(unique = true)
+  @NotNull(message = "Login ID is required")
   private String login;
   private String node_id;
   private String avatar_url;
