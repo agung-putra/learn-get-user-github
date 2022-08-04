@@ -26,17 +26,6 @@ public class MainApplicationTests {
 	}
 
 	@Test
-	public void testGetFavoriteUsers() {
-		HttpHeaders headers = new HttpHeaders();
-		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-
-		ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/api/v1/favorite-users",
-				HttpMethod.GET, entity, String.class);
-
-		Assert.assertEquals(200, response.getStatusCodeValue());
-	}
-
-	@Test
 	public void testFetchAllUsers() {
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
@@ -60,6 +49,17 @@ public class MainApplicationTests {
 		ResponseEntity<?> postResponse = restTemplate.postForEntity(
 				getRootUrl() + "/api/v1/favorite-users", user, String);
 		Assert.assertEquals(200, postResponse.getStatusCodeValue());
+	}
+
+	@Test
+	public void testGetFavoriteUsers() {
+		HttpHeaders headers = new HttpHeaders();
+		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+
+		ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/api/v1/favorite-users",
+				HttpMethod.GET, entity, String.class);
+
+		Assert.assertEquals(200, response.getStatusCodeValue());
 	}
 
 	@Test
