@@ -1,24 +1,30 @@
 package com.agungtsp.githubuserfavorite.github;
 
-import com.agungtsp.githubuserfavorite.User;
+import io.reactivex.Single;
+import io.reactivex.SingleObserver;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 @Service
 public class GithubUserService {
+  public static Single<ArrayList<GithubUserDAO>> getUser(){
+    return Single.create(emitter -> {
+      ArrayList<GithubUserDAO> user = fetchUser();
 
-  public ArrayList<GithubUserDAO> getUser() {
+      if(user != null){
+        emitter.onSuccess(user);
+      } else {
+        emitter.onError(new Exception("User not found"));
+      }
+    });
+  }
+
+  public static ArrayList<GithubUserDAO> fetchUser(){
     Integer perPage = 10;
 
     Retrofit retrofit = new Retrofit.Builder()

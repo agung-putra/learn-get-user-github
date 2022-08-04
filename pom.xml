@@ -15,27 +15,33 @@
 	<description>Test for get github user favorite</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<rx.java.version>2.1.7</rx.java.version>
+		<retrofit.version>2.7.1</retrofit.version>
+		<spring.boot.version>1.5.8.RELEASE</spring.boot.version>
+		<spring.boot.mongo.version>1.5.8.RELEASE</spring.boot.mongo.version>
+		<maven.release.plugin>8</maven.release.plugin>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.squareup.retrofit2</groupId>
 			<artifactId>retrofit</artifactId>
-			<version>2.7.1</version>
+			<version>${retrofit.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.squareup.retrofit2</groupId>
 			<artifactId>converter-jackson</artifactId>
-			<version>2.7.1</version>
+			<version>${retrofit.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-			<version>1.5.8.RELEASE</version>
+			<version>${spring.boot.mongo.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>1.5.8.RELEASE</version>
+			<version>${spring.boot.version}</version>
 		</dependency>
 
 		<dependency>
@@ -46,7 +52,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>1.5.8.RELEASE</version>
+			<version>${spring.boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.reactivex.rxjava2</groupId>
+			<artifactId>rxjava</artifactId>
+			<version>2.2.21</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>RELEASE</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -68,8 +85,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>8</source>
-					<target>8</target>
+					<source>${maven.release.plugin}</source>
+					<target>${maven.release.plugin}</target>
 				</configuration>
 			</plugin>
 		</plugins>
