@@ -17,11 +17,12 @@
 							{
 								"key": "Authorization",
 								"value": "token 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",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "https://api.github.com/users?per_page=20",
+							"raw": "https://api.github.com/users",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -34,7 +35,8 @@
 							"query": [
 								{
 									"key": "per_page",
-									"value": "20"
+									"value": "20",
+									"disabled": true
 								}
 							]
 						}
@@ -94,13 +96,39 @@
 			"response": []
 		},
 		{
+			"name": "Detail User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token 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",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/favorite-users/62ec734036ec9450b0bdc174",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favorite-users",
+						"62ec734036ec9450b0bdc174"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add User Favorite",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"login\": \"defunkt12x2\",\n    \"node_id\": \"MDQ6VXNlcjI=\",\n    \"avatar_url\": \"https://avatars.githubusercontent.com/u/2?v=4\",\n    \"gravatar_id\": \"\",\n    \"url\": \"https://api.github.com/users/defunkt\",\n    \"html_url\": \"https://github.com/defunkt\",\n    \"followers_url\": \"https://api.github.com/users/defunkt/followers\",\n    \"following_url\": \"https://api.github.com/users/defunkt/following{/other_user}\",\n    \"gists_url\": \"https://api.github.com/users/defunkt/gists{/gist_id}\",\n    \"starred_url\": \"https://api.github.com/users/defunkt/starred{/owner}{/repo}\",\n    \"subscriptions_url\": \"https://api.github.com/users/defunkt/subscriptions\",\n    \"organizations_url\": \"https://api.github.com/users/defunkt/orgs\",\n    \"repos_url\": \"https://api.github.com/users/defunkt/repos\",\n    \"events_url\": \"https://api.github.com/users/defunkt/events{/privacy}\",\n    \"received_events_url\": \"https://api.github.com/users/defunkt/received_events\",\n    \"type\": \"User\",\n    \"site_admin\": false\n}",
+					"raw": "{\n    \"login\": \"62eb9ea2292447e8s1be5dec111\",\n    \"node_id\": \"MDQ6VXsNlcjI=\",\n    \"avatar_url\": \"https://avatars.githubusercontent.com/u/2?v=4\",\n    \"gravatar_id\": \"\",\n    \"url\": \"https://api.github.com/users/defunkt\",\n    \"html_url\": \"https://github.com/defunkt\",\n    \"followers_url\": \"https://api.github.com/users/defunkt/followers\",\n    \"following_url\": \"https://api.github.com/users/defunkt/following{/other_user}\",\n    \"gists_url\": \"https://api.github.com/users/defunkt/gists{/gist_id}\",\n    \"starred_url\": \"https://api.github.com/users/defunkt/starred{/owner}{/repo}\",\n    \"subscriptions_url\": \"https://api.github.com/users/defunkt/subscriptions\",\n    \"organizations_url\": \"https://api.github.com/users/defunkt/orgs\",\n    \"repos_url\": \"https://api.github.com/users/defunkt/repos\",\n    \"events_url\": \"https://api.github.com/users/defunkt/events{/privacy}\",\n    \"received_events_url\": \"https://api.github.com/users/defunkt/received_events\",\n    \"type\": \"User\",\n    \"site_admin\": false\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -122,12 +150,21 @@
 			"response": []
 		},
 		{
-			"name": "Delete User Favorite",
+			"name": "Update User Favorite",
 			"request": {
-				"method": "DELETE",
+				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"node_id\": \"aaaaaaaa\",\n    \"avatar_url\": \"https://avatars.githubusercontent.com/u/2?v=4\",\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{BASE_URL}}/api/v1/favorite-users/62ea68953dcdca7b07072a80",
+					"raw": "{{BASE_URL}}/api/v1/favorite-users/62ec734036ec9450b0bdc174",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -135,7 +172,27 @@
 						"api",
 						"v1",
 						"favorite-users",
-						"62ea68953dcdca7b07072a80"
+						"62ec734036ec9450b0bdc174"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User Favorite",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/favorite-users/62eb3c7736ec943e8a812843",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favorite-users",
+						"62eb3c7736ec943e8a812843"
 					]
 				}
 			},
