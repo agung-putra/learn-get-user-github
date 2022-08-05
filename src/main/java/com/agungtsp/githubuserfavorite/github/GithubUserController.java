@@ -16,6 +16,11 @@ public class GithubUserController {
     this.githubUserService = githubUserService;
   }
 
+  /**
+   * Get all users list from github
+   *
+   * @return the list
+   */
   @GetMapping
   public ArrayList<GithubUserDAO> list() {
     return githubUserService.getUser().blockingGet();

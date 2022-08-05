@@ -1,5 +1,6 @@
 package com.agungtsp.githubuserfavorite;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -41,12 +42,13 @@ public class User {
   private String type;
   private Boolean site_admin;
   private LocalDateTime created;
+  private LocalDateTime updated;
 
   public User(Integer id_github, String login, String node_id, String avatar_url,
       String gravatar_id, String url, String html_url, String followers_url, String following_url,
       String gists_url, String starred_url, String subscriptions_url, String organizations_url,
       String repos_url, String events_url, String received_events_url, String type,
-      Boolean site_admin, LocalDateTime created) {
+      Boolean site_admin, LocalDateTime created, LocalDateTime updated) {
     this.id_github = id_github;
     this.login = login;
     this.node_id = node_id;
@@ -66,5 +68,7 @@ public class User {
     this.type = type;
     this.site_admin = site_admin;
     this.created = created;
+    this.updated = updated;
   }
+
 }
